@@ -5,13 +5,14 @@ on:
       - main
       - dev
 env:
-  MONGODB_DB_NAME: gha demo
+  MONGODB_DB_NAME: gha-demo
 jobs:
   test:
+    environment: Testing
     env:
      MONGODB_CLUSTER_ADDRESS: cluster0.xfymp9h.mongodb.net
-     MONGODB_USERNAME: siri
-     MONGODB_PASSWORD: MC6DwiCh6msqJZ5T
+     MONGODB_USERNAME: ${{secrets.MONGODB_USERNAME}}
+     MONGODB_PASSWORD: ${{secrets.MONGODB_PASSWORD}}
      PORT: 8080
     runs-on: ubuntu-latest
     steps:
